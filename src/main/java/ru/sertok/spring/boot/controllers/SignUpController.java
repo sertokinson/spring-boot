@@ -26,6 +26,6 @@ public class SignUpController {
     @PostMapping("/signUp")
     public String post(User user) {
         usersRepository.save(user);
-        return "users";
+        return "redirect:/users";
     }
 }
