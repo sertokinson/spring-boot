@@ -1,7 +1,8 @@
+<#ftl encoding='Cp1251'>
 <html>
 <head>
     <title>Login</title>
-    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="login">

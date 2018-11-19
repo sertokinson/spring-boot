@@ -1,3 +1,4 @@
+<#ftl encoding='Cp1251'>
 <html>
 <head>
     <title>Users</title>
