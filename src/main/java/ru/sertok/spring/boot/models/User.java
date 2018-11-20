@@ -22,8 +22,12 @@ public class User {
     private Long id;
 
     private String name;
-
     private String password;
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
 
     @Column(name = "birthdate")
     private Date birthDate;
