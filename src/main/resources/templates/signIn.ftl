@@ -3,8 +3,12 @@
 <head>
     <title>Login</title>
     <link href="/styles.css" rel="stylesheet" type="text/css">
+    <link href="/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
+<#if error??>
+<div class="alert alert-danger" role="alert">Ћогин или пароль введены неверно</div>
+</#if>
 <div class="login">
     <form method="post" >
         <h2>¬ход</h2>
