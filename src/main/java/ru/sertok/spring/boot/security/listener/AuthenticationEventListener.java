@@ -1,5 +1,7 @@
 package ru.sertok.spring.boot.security.listener;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AuthenticationEventListener implements ApplicationListener<AbstractAuthenticationEvent> {
+    private static final Logger logger = LogManager.getLogger(AuthenticationEventListener.class);
 
     @Override
     public void onApplicationEvent(AbstractAuthenticationEvent authenticationEvent) {
@@ -21,7 +24,7 @@ public class AuthenticationEventListener implements ApplicationListener<Abstract
                 authentication.getCredentials() + " " +
                 authentication.getPrincipal() + " " +
                 "\t\tSuccess: " + authentication.isAuthenticated();
-        System.out.println(auditMessage);
+        logger.info(auditMessage);
     }
 
 }

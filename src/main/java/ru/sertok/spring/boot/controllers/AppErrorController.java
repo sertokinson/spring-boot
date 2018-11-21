@@ -1,28 +1,39 @@
 package ru.sertok.spring.boot.controllers;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.sertok.spring.boot.utils.ErrorCode;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
 
 @Controller
 public class AppErrorController implements ErrorController {
 
-    @GetMapping(value = "/error")
+    @GetMapping("/error")
     public String handleError(HttpServletRequest request) {
-        return Optional.ofNullable(
-                request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE))
-                .map(status -> ErrorCode.valueOf("_".concat(status.toString())).getValue())
-                .orElse("error");
+        Integer status = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+
+        if (status != null) {
+            switch (status) {
+                case 404:
+                    return "error-404";
+                case 500:
+                    return "error-500";
+                case 403:
+                    return "error-403";
+                default:
+                    return "error";
+            }
+        }
+        return "error";
     }
 
-    @Override
-    public String getErrorPath() {
-        return "/error";
-    }
+        @Override
+        public String getErrorPath () {
+            return "/error";
+        }
 
-}
+    }
