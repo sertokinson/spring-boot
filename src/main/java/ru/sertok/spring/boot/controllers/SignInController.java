@@ -1,10 +1,9 @@
 package ru.sertok.spring.boot.controllers;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -12,14 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 public class SignInController {
 
     @GetMapping("/signIn")
-    public String get(ModelMap model, HttpServletRequest request) {
+    public String get(Authentication authentication, ModelMap model, HttpServletRequest request) {
+        if(authentication!=null){
+            return "redirect:/profile";
+        }
         if (request.getParameterMap().containsKey("error"))
             model.addAttribute("error", true);
         return "signIn";
     }
 
-    @PostMapping("/signIn")
-    public String post() {
-        return "redirect:/users";
-    }
 }

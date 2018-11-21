@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Users</title>
-    <link href="/styles.css" rel="stylesheet" type="text/css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <table >
@@ -11,7 +11,7 @@
             <th>Birth date</th>
         </tr>
         <#list users as user>
-            <tr onClick="location.href=location.pathname.concat('/${user.id}')">
+            <tr class="user" onClick="location.href=location.pathname.concat('/${user.id}')">
                 <td>${user.name}</td>
                 <td><#if user.birthDate??>${user.birthDate}</#if> </td>
             </tr>

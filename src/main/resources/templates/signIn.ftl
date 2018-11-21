@@ -2,15 +2,15 @@
 <html>
 <head>
     <title>Login</title>
-    <link href="/styles.css" rel="stylesheet" type="text/css">
-    <link href="/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <#if error??>
 <div class="alert alert-danger" role="alert">Логин или пароль введены неверно</div>
 </#if>
 <div class="login">
-    <form method="post" >
+    <form method="post">
         <h2>Вход</h2>
         <p type="Логин:"><input class="input" type="text" id="name" name="name"/></p>
         <p type="Пароль:"><input class="input" type="password" id="password" name="password"/></p>
