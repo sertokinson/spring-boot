@@ -14,8 +14,9 @@
         <h2>Вход</h2>
         <p type="Логин:"><input class="input" type="text" id="name" name="name"/></p>
         <p type="Пароль:"><input class="input" type="password" id="password" name="password"/></p>
+        <label for="remember-me">
+            <input  type="checkbox" id="remember-me" name="remember-me"> Запомнить меня</label>
         <button>Войти!</button>
     </form>
-</div>
 </body>
 </html>
