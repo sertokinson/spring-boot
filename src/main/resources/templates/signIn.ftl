@@ -9,7 +9,7 @@
 <#if error??>
 <div class="alert alert-danger" role="alert">Ћогин или пароль введены неверно</div>
 </#if>
-<div class="login">
+<div class="form login">
     <form method="post">
         <h2>¬ход</h2>
         <p type="Ћогин:"><input class="input" type="text" id="name" name="name"/></p>

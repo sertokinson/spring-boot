@@ -4,7 +4,7 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="profile">
+<div class="form profile">
     <p>Имя: ${user.name}</p>
     <p>Дата рождения: ${user.date}</p>
     <a href="/logout">Выход</a>

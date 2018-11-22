@@ -25,31 +25,26 @@ div {
     padding: 0;
     margin: 10px;
 }
-
-.form, .signUp {
+.form{
     margin: calc(50vh - 220px) auto;
     position: relative;
+}
+.signUp {
     width: 340px;
     height: 400px;
 }
 
-.form, .login {
-    margin: calc(50vh - 220px) auto;
-    position: relative;
+.login {
     width: 340px;
     height: 350px;
 }
 
-.form, .profile {
-    margin: calc(50vh - 220px) auto;
-    position: relative;
+.profile {
     width: 300px;
     height: 190px;
 }
 
-.form, .home {
-    margin: calc(50vh - 220px) auto;
-    position: relative;
+.home {
     width: 210px;
     height: 130px;
 }
