@@ -13,7 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "ru.sertok.spring.boot.models")
 @ImportResource({"classpath*:context.xml"})
 public class App {
-
     public static void main(String[] args) {
         SpringApplication.run(App.class);
     }
