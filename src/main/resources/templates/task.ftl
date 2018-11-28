@@ -5,11 +5,12 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="form taskForm">
-    <div class="div task form">
+<div class="taskForm">
+    <div class="div">
         <img width="250px" src="/image/dog.jpg">
     </div>
-    <input class="input" type="text" id="name" name="name"/>
+    <input autocomplete="off" class="input word" type="text" id="name" name="name"/>
+    <button class="submit">Ответить</button>
 </div>
 </body>
 </html>
