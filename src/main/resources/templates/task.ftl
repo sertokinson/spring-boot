@@ -3,14 +3,34 @@
 <head>
     <title>Task</title>
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/
 </head>
 <body>
-<div class="taskForm">
+<#if error??>
+<div class="alert alert-danger alert-task" role="alert">Неверно</div>
+</#if>
+<#if success??>
+  <div class="alert alert-success alert-task" role="alert">
+      Правильно!
+  </div>
+</#if>
+<form class="taskForm" method="post">
     <div class="div">
-        <img width="250px" src="/image/dog.jpg">
+        <img width="250px" src="${image}">
     </div>
-    <input autocomplete="off" class="input word" type="text" id="name" name="name"/>
-    <button class="submit">Ответить</button>
-</div>
+    <input
+            style="color: ${color}"
+            value="${value}"
+            autocomplete="off"
+            class="input word"
+            type="text"
+            id="result"
+            name="result"
+    />
+<#if error??>
+    <div class="div answer">Ответ: dog</div>
+</#if>
+    <button class="submit">${action}</button>
+</form>
 </body>
 </html>

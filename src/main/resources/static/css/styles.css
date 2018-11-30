@@ -43,6 +43,14 @@ body {
     text-align: center;
     font-size: 30px;
 }
+.alert-task{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+.answer{
+    padding: 10px 10px;
+}
 
 .submit{
     width:300px;
