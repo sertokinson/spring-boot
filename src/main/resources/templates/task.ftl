@@ -16,7 +16,7 @@
 </#if>
 <form class="taskForm" method="post">
     <div class="div">
-        <img width="250px" src="${image}">
+        <img width="250px" src="/image/dog.jpg">
     </div>
     <input
             style="color: ${color}"
