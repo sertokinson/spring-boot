@@ -3,9 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: [
         'webpack-dev-server/client/?http://localhost:8080',
-        __dirname + '/src/js/Home.js'
+        __dirname + '/src/js/index.js'
     ],
+    devServer:{
+        historyApiFallback:true
+    },
     output: {
+        publicPath : '/',
         path: __dirname + '/dist/',
         filename: 'app.js'
     },
