@@ -32,6 +32,5 @@ public class ImageTaskController {
             model.addAttribute("action","Дальше");
             model.addAttribute("value",result);
         }
-
     }
 }
