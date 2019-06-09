@@ -1,6 +1,7 @@
 package ru.sertok.spring.boot.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
+
+import static ru.sertok.spring.boot.utils.Constants.SESSION_TIMEOUT;
 
 
 @Configuration
@@ -22,14 +29,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
     }
+    @Autowired
+    private DataSource dataSource;
 
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
+        db.setDataSource(dataSource);
+        return db;
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors()
+                .cors().and()
+                .authorizeRequests()
+                .antMatchers("/users/**").hasAuthority("ADMIN")
+                .antMatchers("/signUp/**").permitAll()
+                .antMatchers("/profile/**").authenticated()
+                .and().formLogin().loginPage("/signIn")
+                .defaultSuccessUrl("/profile")
                 .and().csrf().disable()
-                .formLogin().loginPage("/signIn").defaultSuccessUrl("/signIn");
+                .rememberMe().rememberMeParameter("remember-me")
+                .tokenRepository(persistentTokenRepository()).tokenValiditySeconds(SESSION_TIMEOUT);
     }
 
     @Override

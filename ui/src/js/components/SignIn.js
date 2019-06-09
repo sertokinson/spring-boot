@@ -38,20 +38,16 @@ export default class SignIn extends Component {
                     form.set('username', login);
                     form.set('password', password);
                     fetch(new Request(constants.url + '/signIn', {
-                        method: 'POST',
+                        method: 'OPTIONS',
                         body:form,
-                        headers:{
-                            token:{
-                                "X-AUTH-TOKEN" : "token"
-                            }
-                        }
+                        credentials: 'same-origin'
                        /* body: JSON.stringify({name:login,password:password}),
                         headers:{
                             "Content-Type": "application/json"
                         }*/
-                    })).then(
+                    }))/*.then(
                         (response) => response.json().then(data => this.setState({authenticated: data.authenticated}))
-                    )
+                    )*/
                 }}>Войти</button>
             </div>
         )
